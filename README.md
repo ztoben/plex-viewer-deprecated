@@ -3,12 +3,17 @@
 
 A simple electron app boilerplate powered by create-react-app. Supports hot reloading locally.
 
-1. `npm install`
-2. `SET NODE_ENV=development`
-3. `npm start`
-4. ???
-5. Profit
+## Requirements
+ * Node >= 8.2.0
 
-Resources:
+## Getting started
+1. `npm install`
+2. `npm start`
+3. ???
+4. Profit
+
+For hot reloading `SET NODE_ENV=development`
+
+## Resources
 * [Create React App](https://github.com/facebookincubator/create-react-app)
 * [Electron](https://electronjs.org/)
