@@ -3,6 +3,8 @@
 
 A simple electron app boilerplate powered by create-react-app.
 
+![screenshot_1](https://imgur.com/aJAGmfE.jpg)
+
 ## Requirements
  * Node >= 8.2.0
 
