@@ -8,9 +8,20 @@ A simple electron app boilerplate powered by create-react-app.
 ## Requirements
  * Node >= 8.2.0
 
-## Running locally
-1. `npm install`
-2. `npm start`
+## Installing
+Clone the repo:
+
+```bash
+git clone --depth=1 https://github.com/ztoben/electron-create-react-app-boilerplate.git your-project-name
+```
+
+Then install dependencies and run the project
+
+```bash
+$ cd your-project-name
+$ npm i
+$ npm start
+```
 
 ## Packaging the app
 1. `npm run build`
