@@ -1,5 +1,6 @@
 const electron = require('electron');
 const app = electron.app;
+const globalShortcut = electron.globalShortcut;
 const BrowserWindow = electron.BrowserWindow;
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
@@ -33,7 +34,13 @@ function createWindow() {
     mainWindowState.manage(mainWindow);
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+    createWindow();
+
+    globalShortcut.register('Shift+Control+X', () => {
+        mainWindow.isMinimized() ? mainWindow.restore() : mainWindow.minimize();
+    });
+});
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
