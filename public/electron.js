@@ -2,6 +2,7 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const isDev = require('electron-is-dev');
+const windowStateKeeper = require('electron-window-state');
 
 const path = require('path');
 const url = require('url');
@@ -9,12 +10,27 @@ const url = require('url');
 let mainWindow;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    let mainWindowState = windowStateKeeper({
+        defaultWidth: 600,
+        defaultHeight: 500
+    });
+
+    mainWindow = new BrowserWindow({
+        alwaysOnTop: true,
+        'x': mainWindowState.x,
+        'y': mainWindowState.y,
+        'width': mainWindowState.width,
+        'height': mainWindowState.height
+    });
+
     mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
     // mainWindow.webContents.openDevTools();
+    mainWindow.setMenu(null);
     mainWindow.on('closed', function () {
         mainWindow = null
-    })
+    });
+
+    mainWindowState.manage(mainWindow);
 }
 
 app.on('ready', createWindow);
