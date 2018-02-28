@@ -9,5 +9,7 @@ A simple electron app for viewing plex and with support for keyboard shortcuts.
 * Toggle minimize - Shift + Ctrl + X
 
 ### Todo
-* Support for other urls
 * Keyboard shortcut editor/viewer
+* Keyboard shortcut for pause/play/mute
+* Auto pause on minimize
+* Hide/show top navigation
