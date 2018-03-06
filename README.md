@@ -7,6 +7,7 @@ A simple electron app for viewing plex and with support for keyboard shortcuts.
 
 ### Shortcuts
 * Toggle minimize - Shift + Ctrl + X
+* Toggle window frame - Shift + Ctrl + Z
 
 ### Todo
 * Keyboard shortcut editor/viewer

@@ -9,6 +9,7 @@ const path = require('path');
 const url = require('url');
 
 let mainWindow;
+let frame = true;
 
 function createWindow() {
     let mainWindowState = windowStateKeeper({
@@ -21,25 +22,35 @@ function createWindow() {
         'x': mainWindowState.x,
         'y': mainWindowState.y,
         'width': mainWindowState.width,
-        'height': mainWindowState.height
+        'height': mainWindowState.height,
+        frame
     });
 
     mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-    // mainWindow.webContents.openDevTools();
     mainWindow.setMenu(null);
-    mainWindow.on('closed', function () {
-        mainWindow = null
-    });
-
     mainWindowState.manage(mainWindow);
 }
 
-app.on('ready', () => {
+function removeFrame() {
+    frame = !frame;
+
+    let currentWindowId = mainWindow.id;
+
     createWindow();
 
+    BrowserWindow.fromId(currentWindowId).close();
+}
+
+app.on('ready', () => {
     globalShortcut.register('Shift+Control+X', () => {
         mainWindow.isMinimized() ? mainWindow.restore() : mainWindow.minimize();
     });
+
+    globalShortcut.register('Shift+Control+Z', () => {
+        removeFrame();
+    });
+
+    createWindow();
 });
 
 app.on('window-all-closed', function () {
