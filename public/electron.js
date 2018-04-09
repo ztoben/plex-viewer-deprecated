@@ -18,8 +18,14 @@ function createWindow() {
             defaultWidth: 600,
             defaultHeight: 500
         });
-    }
 
+        manageWindow();
+    } else {
+        manageWindow();
+    }
+}
+
+function manageWindow() {
     mainWindow = new BrowserWindow({
         alwaysOnTop: true,
         'x': mainWindowState.x,
@@ -28,7 +34,6 @@ function createWindow() {
         'height': mainWindowState.height,
         frame
     });
-
     mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
     mainWindow.setMenu(null);
     mainWindowState.manage(mainWindow);
