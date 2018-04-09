@@ -10,12 +10,15 @@ const url = require('url');
 
 let mainWindow;
 let frame = true;
+let mainWindowState = null;
 
 function createWindow() {
-    let mainWindowState = windowStateKeeper({
-        defaultWidth: 600,
-        defaultHeight: 500
-    });
+    if (!mainWindowState) {
+        mainWindowState = windowStateKeeper({
+            defaultWidth: 600,
+            defaultHeight: 500
+        });
+    }
 
     mainWindow = new BrowserWindow({
         alwaysOnTop: true,
