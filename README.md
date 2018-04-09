@@ -13,4 +13,4 @@ A simple electron app for viewing plex and with support for keyboard shortcuts.
 * Keyboard shortcut editor/viewer
 * Keyboard shortcut for pause/play/mute
 * Auto pause on minimize
-* Hide/show top navigation
+~~* Hide/show top navigation~~
