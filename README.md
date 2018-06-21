@@ -1,7 +1,7 @@
 
 # plex-viewer
 
-[![Build Status](https://travis-ci.org/ztoben/plex-viewer.svg?branch=master)](https://travis-ci.org/ztoben/plex-viewer)
+[![Build Status](https://travis-ci.org/ztoben/plex-viewer.svg?branch=master)](https://travis-ci.org/ztoben/plex-viewer) [![Greenkeeper badge](https://badges.greenkeeper.io/ztoben/plex-viewer.svg)](https://greenkeeper.io/)
 
 A simple electron app for viewing plex and with support for keyboard shortcuts.
 
