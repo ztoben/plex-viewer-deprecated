@@ -15,8 +15,6 @@
     "react-start": "cross-env BROWSER=none react-scripts start",
     "start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000/ && electron .\"",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
     "postinstall": "install-app-deps",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
@@ -33,6 +31,9 @@
   "build": {
     "win": {
       "target": "NSIS",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
       "icon": "build/icon.ico"
     }
   }
