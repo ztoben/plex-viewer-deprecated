@@ -5,6 +5,7 @@
   "version": "0.4.0",
   "private": true,
   "dependencies": {
+    "electron-debug": "2.0.0",
     "electron-is-dev": "^0.3.0",
     "electron-window-state": "^4.1.1",
     "react": "^16.2.0",
