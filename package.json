@@ -5,6 +5,7 @@
   "version": "0.4.1",
   "private": true,
   "dependencies": {
+    "ajv": "6.5.1",
     "electron-debug": "2.0.0",
     "electron-is-dev": "^0.3.0",
     "electron-window-state": "^4.1.1",
@@ -16,7 +17,7 @@
     "react-start": "cross-env BROWSER=none react-scripts start",
     "start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000/ && electron .\"",
     "build": "react-scripts build",
-    "postinstall": "install-app-deps",
+    "postinstall": "electron-builder install-app-deps",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
