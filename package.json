@@ -2,7 +2,7 @@
   "author": "Zach Toben <zach.toben@gmail.com>",
   "description": "An app for viewing plex in a pop up window",
   "name": "plex-viewer",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "dependencies": {
     "ajv": "6.5.1",
