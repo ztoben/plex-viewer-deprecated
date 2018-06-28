@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "postinstall": "electron-builder install-app-deps",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "npm run build && electron-builder"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
