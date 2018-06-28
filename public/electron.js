@@ -82,6 +82,14 @@ app.on('ready', () => {
     mainWindow.webContents.send('forward');
   });
 
+  globalShortcut.register('Shift+Control+>', function () {
+    mainWindow.webContents.send('next');
+  });
+
+  globalShortcut.register('Shift+Control+<', function () {
+    mainWindow.webContents.send('previous');
+  });
+
   createWindow();
 });
 
