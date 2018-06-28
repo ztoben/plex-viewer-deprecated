@@ -10,6 +10,10 @@ A simple electron app for viewing plex and with support for keyboard shortcuts.
 ### Shortcuts
 * Toggle minimize - `Shift + Ctrl + X`
 * Toggle window frame (chrome) - `Shift + Ctrl + Z`
+* Toggle left plex menu (hidden by default) - `Shift + Ctrl + H`
+* Navigate back - `Shift + Ctrl + ←`
+* Navigate forward - `Shift + Ctrl + →`
+* Media controls for Play/Pause/Skip/Back
 
 ### Todo
 * Keyboard shortcut editor/viewer
