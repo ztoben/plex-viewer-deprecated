@@ -17,6 +17,6 @@ A simple electron app for viewing plex and with support for keyboard shortcuts.
 
 ### Todo
 * Keyboard shortcut editor/viewer
-* Keyboard shortcut for pause/play/mute
+* ~~Keyboard shortcut for pause/play/mute~~
 * Auto pause on minimize
 * ~~Hide/show top navigation~~
