@@ -19,10 +19,13 @@ function initStore() {
   if (!store.has('simplePlayerMode')) {
     store.set('simplePlayerMode', false);
   }
+
+  if (!store.has('windowChromeHidden')) {
+    store.set('windowChromeHidden', false);
+  }
 }
 
 let mainWindow;
-let frame = true;
 let mainWindowState = null;
 
 function createWindow() {
@@ -45,7 +48,7 @@ function manageWindow() {
     'y': mainWindowState.y,
     'width': mainWindowState.width,
     'height': mainWindowState.height,
-    frame
+    frame: !store.get('windowChromeHidden')
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.setMenu(null);
@@ -53,7 +56,7 @@ function manageWindow() {
 }
 
 function removeFrame() {
-  frame = !frame;
+  store.set('windowChromeHidden', !store.get('windowChromeHidden'));
 
   let currentWindowId = mainWindow.id;
 
