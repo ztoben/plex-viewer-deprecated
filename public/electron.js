@@ -1,7 +1,4 @@
-const electron = require('electron');
-const app = electron.app;
-const globalShortcut = electron.globalShortcut;
-const BrowserWindow = electron.BrowserWindow;
+const {app, globalShortcut, BrowserWindow, Menu, Tray} = require('electron');
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
 const Store = require('electron-store');
@@ -10,6 +7,13 @@ const path = require('path');
 require('electron-debug')();
 
 const store = new Store();
+
+let mainWindow;
+let tray = null;
+let mainWindowState = null;
+
+// Don't show the app in the dock
+app.dock.hide();
 
 function initStore() {
   if (!store.has('plexWebLeftPanelHidden')) {
@@ -24,9 +28,6 @@ function initStore() {
     store.set('windowChromeHidden', false);
   }
 }
-
-let mainWindow;
-let mainWindowState = null;
 
 function createWindow() {
   if (!mainWindowState) {
@@ -48,7 +49,8 @@ function manageWindow() {
     'y': mainWindowState.y,
     'width': mainWindowState.width,
     'height': mainWindowState.height,
-    frame: !store.get('windowChromeHidden')
+    frame: !store.get('windowChromeHidden'),
+    skipTaskbar: true
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.setMenu(null);
@@ -65,9 +67,18 @@ function removeFrame() {
   BrowserWindow.fromId(currentWindowId).close();
 }
 
-app.on('ready', () => {
+function toggleWindow() {
+  if (mainWindow.isVisible()) {
+    mainWindow.hide();
+  } else {
+    mainWindow.show();
+    mainWindow.focus();
+  }
+}
+
+function registerShortcuts() {
   globalShortcut.register('Shift+Control+X', () => {
-    mainWindow.isMinimized() ? mainWindow.restore() : mainWindow.minimize();
+    toggleWindow();
   });
 
   globalShortcut.register('Shift+Control+Z', () => {
@@ -109,9 +120,19 @@ app.on('ready', () => {
   globalShortcut.register('Shift+Control+M', function () {
     mainWindow.webContents.send('simple-player-mode');
   });
+}
 
-  createWindow();
+function buildTray() {
+  tray = new Tray(path.join(__dirname, 'tray-icon.png'));
+  tray.setToolTip('plex-viewer');
+  tray.on('double-click', toggleWindow);
+}
+
+app.on('ready', () => {
   initStore();
+  buildTray();
+  registerShortcuts();
+  createWindow();
 });
 
 app.on('window-all-closed', function () {
