@@ -5,14 +5,16 @@
 
 A simple electron app for viewing plex in it's own window.
 
-![screenshot_1](https://imgur.com/svVqU7o.jpg)
+![screenshot_1](https://i.imgur.com/tI1dtO2.jpg)
 
 ## Features
 * Keyboard shortcuts
 * Sticks on top and remembers window location
 * Toggle-able window chrome for a cleaner look
 * Media controls for Play/Pause/Skip/Back
-* Simple player mode
+* Simple player mode for condensed playback windows
+
+![simple player mode](https://i.imgur.com/tlMJxaf.png)
 
 ## Shortcuts
 * Toggle minimize - `Shift + Ctrl + X`
