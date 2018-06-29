@@ -14,7 +14,7 @@ A simple electron app for viewing plex in it's own window.
 * Media controls for Play/Pause/Skip/Back
 * Simple player mode for condensed playback windows
 
-![simple player mode](https://i.imgur.com/tlMJxaf.png)
+<img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode" height="500"/>
 
 ## Shortcuts
 * Toggle minimize - `Shift + Ctrl + X`
@@ -29,3 +29,5 @@ A simple electron app for viewing plex in it's own window.
 * ~~Keyboard shortcut for pause/play/mute~~
 * Auto pause on minimize
 * ~~Hide/show top navigation~~
+* Custom background colors
+* Headphone controls
