@@ -25,6 +25,7 @@ A simple electron app for viewing plex in it's own window.
 * Simple player mode - `Shift + Ctrl + M`
 
 ## Todo
+* Persistent settings
 * Keyboard shortcut editor/viewer
 * ~~Keyboard shortcut for pause/play/mute~~
 * Auto pause on minimize
