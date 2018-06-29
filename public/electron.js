@@ -4,9 +4,22 @@ const globalShortcut = electron.globalShortcut;
 const BrowserWindow = electron.BrowserWindow;
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
-
+const Store = require('electron-store');
 const path = require('path');
+
 require('electron-debug')();
+
+const store = new Store();
+
+function initStore() {
+  if (!store.has('plexWebLeftPanelHidden')) {
+    store.set('plexWebLeftPanelHidden', true);
+  }
+
+  if (!store.has('simplePlayerMode')) {
+    store.set('simplePlayerMode', false);
+  }
+}
 
 let mainWindow;
 let frame = true;
@@ -95,6 +108,7 @@ app.on('ready', () => {
   });
 
   createWindow();
+  initStore();
 });
 
 app.on('window-all-closed', function () {

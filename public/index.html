@@ -16,10 +16,9 @@
   </body>
   <script>
     const {ipcRenderer} = window.require('electron');
+    const Store = window.require('electron-store');
     const webview = document.getElementById('web-view');
-
-    let menuHidden = true;
-    let simplePlayer = false;
+    const store = new Store();
 
     function hideMenu() {
       webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: none !important;}');
@@ -40,19 +39,26 @@
     }
 
     webview.addEventListener('dom-ready', function () {
-      hideMenu();
+      if (store.get('plexWebLeftPanelHidden')) {
+        hideMenu();
+      }
+      if (store.get('simplePlayerMode')) {
+        toggleSimplePlayerModeOn();
+      }
     });
 
     ipcRenderer.on('toggle-left-menu', () => {
-      menuHidden = !menuHidden;
+      const menuHidden = !store.get('plexWebLeftPanelHidden');
+      store.set('plexWebLeftPanelHidden', menuHidden);
 
       menuHidden ? hideMenu() : showMenu();
     });
 
     ipcRenderer.on('simple-player-mode', () => {
-      simplePlayer = !simplePlayer;
+      const simplePlayerModeEnabled = !store.get('simplePlayerMode');
+      store.set('simplePlayerMode', simplePlayerModeEnabled);
 
-      simplePlayer ? toggleSimplePlayerModeOn() : toggleSimplePlayerModeOff();
+      simplePlayerModeEnabled ? toggleSimplePlayerModeOn() : toggleSimplePlayerModeOff();
     });
 
     ipcRenderer.on('back', () => {
@@ -75,4 +81,5 @@
       webview.sendInputEvent({type: 'keyDown', keyCode: 'Left'});
     });
   </script>
+  <style> ::selection { background: white; /* WebKit/Blink Browsers */ } </style>
 </html>
