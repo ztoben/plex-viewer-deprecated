@@ -1,4 +1,4 @@
-const {app, globalShortcut, BrowserWindow, Menu, Tray} = require('electron');
+const {app, globalShortcut, BrowserWindow, Tray} = require('electron');
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
 const Store = require('electron-store');
@@ -13,7 +13,7 @@ let mainWindow;
 let tray = null;
 let mainWindowState = null;
 
-// Don't show the app in the dock
+// Don't show the app in the dock on osx
 if (platform.isDarwin) {
   app.dock.hide();
 }
@@ -53,7 +53,7 @@ function manageWindow() {
     'width': mainWindowState.width,
     'height': mainWindowState.height,
     frame: !store.get('windowChromeHidden'),
-    skipTaskbar: true
+    skipTaskbar: true // Don't show app in the taskbar on windows
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.setMenu(null);
