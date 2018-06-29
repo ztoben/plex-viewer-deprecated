@@ -2,6 +2,7 @@ const {app, globalShortcut, BrowserWindow, Menu, Tray} = require('electron');
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
 const Store = require('electron-store');
+const platform = require('electron-platform');
 const path = require('path');
 
 require('electron-debug')();
@@ -13,7 +14,9 @@ let tray = null;
 let mainWindowState = null;
 
 // Don't show the app in the dock
-app.dock.hide();
+if (platform.isDarwin) {
+  app.dock.hide();
+}
 
 function initStore() {
   if (!store.has('plexWebLeftPanelHidden')) {
