@@ -90,6 +90,10 @@ app.on('ready', () => {
     mainWindow.webContents.send('previous');
   });
 
+  globalShortcut.register('Shift+Control+M', function () {
+    mainWindow.webContents.send('simple-player-mode');
+  });
+
   createWindow();
 });
 

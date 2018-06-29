@@ -19,6 +19,7 @@
     const webview = document.getElementById('web-view');
 
     let menuHidden = true;
+    let simplePlayer = false;
 
     function hideMenu() {
       webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: none !important;}');
@@ -26,6 +27,16 @@
 
     function showMenu() {
       webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: flex !important;}');
+    }
+
+    function toggleSimplePlayerModeOn() {
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupLeft"]{ display: none !important;}');
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupRight"]{ display: none !important;}');
+    }
+
+    function toggleSimplePlayerModeOff() {
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupLeft"]{ display: flex !important;}');
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupRight"]{ display: flex !important;}');
     }
 
     webview.addEventListener('dom-ready', function () {
@@ -36,6 +47,12 @@
       menuHidden = !menuHidden;
 
       menuHidden ? hideMenu() : showMenu();
+    });
+
+    ipcRenderer.on('simple-player-mode', () => {
+      simplePlayer = !simplePlayer;
+
+      simplePlayer ? toggleSimplePlayerModeOn() : toggleSimplePlayerModeOff();
     });
 
     ipcRenderer.on('back', () => {
