@@ -14,7 +14,9 @@ A simple electron app for viewing plex in it's own window.
 * Media controls for Play/Pause/Skip/Back
 * Simple player mode for condensed playback windows
 
-<img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode" height="500"/>
+<img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode 1" height="500"/>
+
+<img src="https://i.imgur.com/X3bCAPp.png" alt="simple player mode 2" height="500"/>
 
 ## Shortcuts
 * Toggle minimize - `Shift + Ctrl + X`
