@@ -21,21 +21,26 @@
     const store = new Store();
 
     function hideMenu() {
-      webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: none !important;}');
+      webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: none !important; }');
     }
 
     function showMenu() {
-      webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: flex !important;}');
+      webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: flex !important; }');
     }
 
     function toggleSimplePlayerModeOn() {
-      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupLeft"]{ display: none !important;}');
-      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupRight"]{ display: none !important;}');
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupLeft"]{ display: none !important; }');
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupRight"]{ display: none !important; }');
+      webview.insertCSS('div[class^="QuickSearch-container"]{ width: calc(100% - 100px); }');
+      webview.insertCSS('div[class^="QuickSearch-container"]{ display: block; }');
+      webview.insertCSS('div[class^="NavBar-left"]{ width: 100%; }');
+      webview.insertCSS('div[class^="NavBar-right"]{ display: none !important; }');
     }
 
     function toggleSimplePlayerModeOff() {
-      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupLeft"]{ display: flex !important;}');
-      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupRight"]{ display: flex !important;}');
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupLeft"]{ display: flex !important; }');
+      webview.insertCSS('div[class^="AudioVideoPlayerControls-buttonGroupRight"]{ display: flex !important; }');
+      webview.insertCSS('div[class^="NavBar-right"]{ display: flex !important; }');
     }
 
     webview.addEventListener('dom-ready', function () {
