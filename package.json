@@ -5,7 +5,7 @@
   "version": "0.4.4",
   "private": true,
   "dependencies": {
-    "ajv": "6.5.3",
+    "ajv": "6.5.4",
     "electron-debug": "2.0.0",
     "electron-is-dev": "1.0.1",
     "electron-platform": "1.2.0",
