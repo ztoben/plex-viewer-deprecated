@@ -28,7 +28,7 @@
     "cross-env": "5.2.0",
     "electron": "3.0.7",
     "electron-builder": "20.31.1",
-    "wait-on": "3.1.0"
+    "wait-on": "3.2.0"
   },
   "homepage": "./",
   "main": "public/electron.js",
