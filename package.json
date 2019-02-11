@@ -13,7 +13,7 @@
     "electron-window-state": "5.0.3",
     "react": "16.8.1",
     "react-dom": "16.8.1",
-    "react-scripts": "2.1.4"
+    "react-scripts": "2.1.5"
   },
   "scripts": {
     "react-start": "cross-env BROWSER=none react-scripts start",
