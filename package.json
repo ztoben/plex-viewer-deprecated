@@ -7,7 +7,7 @@
   "dependencies": {
     "ajv": "6.9.2",
     "electron-debug": "2.2.0",
-    "electron-is-dev": "1.0.1",
+    "electron-is-dev": "1.1.0",
     "electron-platform": "1.2.0",
     "electron-store": "3.1.0",
     "electron-window-state": "5.0.3",
