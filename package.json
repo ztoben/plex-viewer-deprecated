@@ -29,7 +29,7 @@
     "electron": "5.0.6",
     "electron-builder": "20.44.4",
     "typescript": "3.3.3333",
-    "wait-on": "3.2.0"
+    "wait-on": "3.3.0"
   },
   "homepage": "./",
   "main": "public/electron.js",
