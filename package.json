@@ -27,7 +27,7 @@
     "concurrently": "4.1.1",
     "cross-env": "5.2.0",
     "electron": "4.2.8",
-    "electron-builder": "21.1.5",
+    "electron-builder": "21.2.0",
     "typescript": "3.5.3",
     "wait-on": "3.3.0"
   },
