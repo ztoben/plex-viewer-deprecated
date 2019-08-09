@@ -39,7 +39,7 @@ function toggleSimplePlayerModeOn() {
   webview.insertCSS('div[class^="QuickSearch-container"]{ display: block; }');
 
   // Navbar
-  webview.insertCSS('div[class^="NavBar-left"]{ width: 100%; }');
+  webview.insertCSS('div[class^="NavBar-left"]{ width: 100%; padding-right: 10px; }');
   webview.insertCSS('div[class^="NavBar-right"]{ display: none !important; }');
 }
 
