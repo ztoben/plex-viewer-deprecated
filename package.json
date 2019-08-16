@@ -24,7 +24,7 @@
     "dist": "npm run build && electron-builder -mw"
   },
   "devDependencies": {
-    "concurrently": "4.1.1",
+    "concurrently": "4.1.2",
     "cross-env": "5.2.0",
     "electron": "4.2.8",
     "electron-builder": "21.2.0",
