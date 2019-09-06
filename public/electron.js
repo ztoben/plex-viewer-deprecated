@@ -30,6 +30,10 @@ function initStore() {
   if (!store.has('windowChromeHidden')) {
     store.set('windowChromeHidden', false);
   }
+
+  if (!store.has('autoPause')) {
+    store.set('autoPause', true);
+  }
 }
 
 function createWindow() {
@@ -97,6 +101,9 @@ function removeFrame() {
 function toggleWindow() {
   if (mainWindow.isVisible()) {
     mainWindow.hide();
+    if (store.get('autoPause')) {
+      mainWindow.webContents.send('pause');
+    }
   } else {
     mainWindow.show();
     mainWindow.focus();
@@ -173,6 +180,23 @@ function buildTray() {
         {
           label: '16:9 (Vertical)',
           click: () => setWindowAspectRatio('16:9', 'vertical')
+        }
+      ]
+    },
+    {
+      label: 'Pause on Minimize',
+      submenu: [
+        {
+          label: 'On',
+          type: 'radio',
+          checked: store.get('autoPause'),
+          click: () => store.set('autoPause', true)
+        },
+        {
+          label: 'Off',
+          type: 'radio',
+          checked: !store.get('autoPause'),
+          click: () => store.set('autoPause', false)
         }
       ]
     }

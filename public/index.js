@@ -94,6 +94,12 @@ ipcRenderer.on('play-pause', () => {
   webview.sendInputEvent({type: 'keyDown', keyCode: 'Space'});
 });
 
+ipcRenderer.on('pause', () => {
+  if (webview.isCurrentlyAudible()) {
+    webview.sendInputEvent({type: 'keyDown', keyCode: 'Space'});
+  }
+});
+
 ipcRenderer.on('next', () => {
   webview.sendInputEvent({type: 'keyDown', keyCode: 'Right'});
 });

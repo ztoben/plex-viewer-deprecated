@@ -14,6 +14,7 @@ A simple electron app for viewing plex in it's own window.
 * Media controls for Play/Pause/Skip/Back
 * Simple player mode for condensed playback windows
 * Quick aspect ratio switching from context menu (4:3 and 16:9)
+* Automatically pause content on minimize
 
 <img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode 1" height="500"/>
 
@@ -31,7 +32,7 @@ A simple electron app for viewing plex in it's own window.
 * ~~Persistent settings~~
 * Keyboard shortcut editor/viewer
 * ~~Keyboard shortcut for pause/play/mute~~
-* Auto pause on minimize
+* ~~Auto pause on minimize~~
 * ~~Hide/show top navigation~~
 * Custom background colors
 * Headphone controls
