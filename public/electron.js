@@ -199,6 +199,10 @@ function buildTray() {
           click: () => store.set('autoPause', false)
         }
       ]
+    },
+    {
+      label: 'Toggle Window',
+      click: toggleWindow
     }
   ]);
 
