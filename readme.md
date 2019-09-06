@@ -13,6 +13,7 @@ A simple electron app for viewing plex in it's own window.
 * Toggle-able window chrome for a cleaner look
 * Media controls for Play/Pause/Skip/Back
 * Simple player mode for condensed playback windows
+* Quick aspect ratio switching from context menu (4:3 and 16:9)
 
 <img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode 1" height="500"/>
 

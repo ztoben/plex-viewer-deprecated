@@ -1,4 +1,4 @@
-const {app, globalShortcut, BrowserWindow, Tray} = require('electron');
+const {app, globalShortcut, BrowserWindow, Tray, Menu} = require('electron');
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
 const Store = require('electron-store');
@@ -42,6 +42,30 @@ function createWindow() {
     manageWindow();
   } else {
     manageWindow();
+  }
+}
+
+function setWindowAspectRatio(ratio, direction) {
+  const [currentWidth, currentHeight] = mainWindow.getSize();
+
+  if (ratio === '4:3') {
+    if (direction === 'vertical') {
+      mainWindow.setSize(currentWidth, Math.round(currentWidth * 3 / 4));
+    }
+
+    if (direction === 'horizontal') {
+      mainWindow.setSize(Math.round(currentHeight * 4 / 3), currentHeight);
+    }
+  }
+
+  if (ratio === '16:9') {
+    if (direction === 'vertical') {
+      mainWindow.setSize(currentWidth, Math.round(currentWidth * 9 / 16));
+    }
+
+    if (direction === 'horizontal') {
+      mainWindow.setSize(Math.round(currentHeight * 16 / 9), currentHeight);
+    }
   }
 }
 
@@ -129,6 +153,32 @@ function buildTray() {
   tray = new Tray(path.join(__dirname, 'tray-icon.png'));
   tray.setToolTip('plex-viewer');
   tray.on('double-click', toggleWindow);
+
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Aspect Ratio',
+      submenu: [
+        {
+          label: '4:3 (Horizontal)',
+          click: () => setWindowAspectRatio('4:3', 'horizontal')
+        },
+        {
+          label: '4:3 (Vertical)',
+          click: () => setWindowAspectRatio('4:3', 'vertical')
+        },
+        {
+          label: '16:9 (Horizontal)',
+          click: () => setWindowAspectRatio('16:9', 'horizontal')
+        },
+        {
+          label: '16:9 (Vertical)',
+          click: () => setWindowAspectRatio('16:9', 'vertical')
+        }
+      ]
+    }
+  ]);
+
+  tray.setContextMenu(contextMenu);
 }
 
 app.on('ready', () => {

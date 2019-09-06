@@ -9,7 +9,7 @@ class WebView extends Component {
         src={src}
         autosize="on"
         id="web-view"
-        nodeintegration
+        nodeintegration="true"
       />
     );
   }
