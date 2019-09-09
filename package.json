@@ -2,10 +2,12 @@
   "author": "Zach Toben <zach.toben@gmail.com>",
   "description": "An app for viewing plex in a pop up window",
   "name": "plex-viewer",
+  "license": "MIT",
   "version": "0.4.6",
   "private": true,
   "dependencies": {
     "ajv": "6.10.2",
+    "electron-about-window": "1.13.1",
     "electron-debug": "3.0.1",
     "electron-is-dev": "1.1.0",
     "electron-platform": "1.2.0",

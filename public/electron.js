@@ -1,6 +1,7 @@
 const {app, globalShortcut, BrowserWindow, Tray, Menu} = require('electron');
 const isDev = require('electron-is-dev');
 const windowStateKeeper = require('electron-window-state');
+const openAboutWindow = require('electron-about-window').default;
 const Store = require('electron-store');
 const platform = require('electron-platform');
 const path = require('path');
@@ -157,8 +158,13 @@ function registerShortcuts() {
 }
 
 function buildTray() {
-  tray = new Tray(path.join(__dirname, 'tray-icon.png'));
-  tray.setToolTip('plex-viewer');
+  if (platform.isDarwin) {
+    tray = new Tray(path.join(__dirname, 'tray-icon-white.png'));
+  } else {
+    tray = new Tray(path.join(__dirname, 'tray-icon.png'));
+  }
+
+  tray.setToolTip('Plex Viewer');
   tray.on('double-click', toggleWindow);
 
   const contextMenu = Menu.buildFromTemplate([
@@ -203,6 +209,18 @@ function buildTray() {
     {
       label: 'Toggle Window',
       click: toggleWindow
+    },
+    {
+      label: 'About',
+      click: () =>
+        openAboutWindow({
+          icon_path: path.join(__dirname, 'icon.png'),
+          package_json_dir: __dirname,
+          product_name: 'Plex Viewer',
+          bug_report_url: 'https://github.com/ztoben/plex-viewer/issues',
+          description: 'An electron wrapper for viewing Plex',
+          license: 'MIT'
+        })
     }
   ]);
 
