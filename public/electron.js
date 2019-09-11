@@ -39,6 +39,10 @@ function initStore() {
   if (!store.has('positionLocked')) {
     store.set('positionLocked', true);
   }
+
+  if (!store.has('windowOpacity')) {
+    store.set('windowOpacity', 1.0);
+  }
 }
 
 function createWindow() {
@@ -123,6 +127,11 @@ function setPositionLocked(isLocked) {
   store.set('positionLocked', isLocked);
 }
 
+function setWindowOpacity(opacity) {
+  store.set('windowOpacity', opacity);
+  mainWindow.setOpacity(opacity);
+}
+
 function registerShortcuts() {
   globalShortcut.register('Shift+Control+X', () => {
     toggleWindow();
@@ -200,6 +209,17 @@ function buildTray() {
           click: () => setWindowAspectRatio('16:9', 'vertical')
         }
       ]
+    },
+    {
+      label: 'Window Opacity',
+      submenu: [.1, .2, .3, .4, .5, .6, .7, .8, .9, 1].map(val => {
+        return {
+          label: val.toFixed(1).toString(),
+          type: 'radio',
+          checked: store.get('windowOpacity') === val,
+          click: () => setWindowOpacity(val)
+        }
+      })
     },
     {
       label: 'Pause on Minimize',
