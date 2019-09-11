@@ -35,6 +35,10 @@ function initStore() {
   if (!store.has('autoPause')) {
     store.set('autoPause', true);
   }
+
+  if (!store.has('positionLocked')) {
+    store.set('positionLocked', true);
+  }
 }
 
 function createWindow() {
@@ -82,7 +86,9 @@ function manageWindow() {
     'width': mainWindowState.width,
     'height': mainWindowState.height,
     frame: !store.get('windowChromeHidden'),
-    skipTaskbar: true // Don't show app in the taskbar on windows
+    skipTaskbar: true, // Don't show app in the taskbar on windows
+    resizable: !store.get('positionLocked'),
+    movable: !store.get('positionLocked')
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.setMenu(null);
@@ -109,6 +115,12 @@ function toggleWindow() {
     mainWindow.show();
     mainWindow.focus();
   }
+}
+
+function setPositionLocked(isLocked) {
+  mainWindow.setResizable(!isLocked);
+  mainWindow.setMovable(!isLocked);
+  store.set('positionLocked', isLocked);
 }
 
 function registerShortcuts() {
@@ -203,6 +215,23 @@ function buildTray() {
           type: 'radio',
           checked: !store.get('autoPause'),
           click: () => store.set('autoPause', false)
+        }
+      ]
+    },
+    {
+      label: 'Lock Window',
+      submenu: [
+        {
+          label: 'On',
+          type: 'radio',
+          checked: store.get('positionLocked'),
+          click: () => setPositionLocked(true)
+        },
+        {
+          label: 'Off',
+          type: 'radio',
+          checked: !store.get('positionLocked'),
+          click: () => setPositionLocked(false)
         }
       ]
     },
