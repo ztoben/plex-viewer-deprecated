@@ -17,6 +17,7 @@ A simple electron app for viewing plex in it's own window.
 * Automatically pause content on minimize
 * Lock window position
 * Change window opacity
+* [OSX only] Show across all workspaces
 
 <img src="https://i.imgur.com/tlMJxaf.png" alt="simple player mode 1" height="500"/>
 

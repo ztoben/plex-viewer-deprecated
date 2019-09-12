@@ -32,6 +32,10 @@ function initStore() {
     store.set('windowChromeHidden', false);
   }
 
+  if (!store.has('showOnAllWorkspaces')) {
+    store.set('showOnAllWorkspaces', false);
+  }
+
   if (!store.has('autoPause')) {
     store.set('autoPause', true);
   }
@@ -92,7 +96,9 @@ function manageWindow() {
     frame: !store.get('windowChromeHidden'),
     skipTaskbar: true, // Don't show app in the taskbar on windows
     resizable: !store.get('positionLocked'),
-    movable: !store.get('positionLocked')
+    movable: !store.get('positionLocked'),
+    fullscreenable: !store.get('showOnAllWorkspaces'),
+    visibleOnAllWorkspaces: store.get('showOnAllWorkspaces')
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.setMenu(null);
@@ -125,6 +131,12 @@ function setPositionLocked(isLocked) {
   mainWindow.setResizable(!isLocked);
   mainWindow.setMovable(!isLocked);
   store.set('positionLocked', isLocked);
+}
+
+function setShowOnAllWorkspaces(show) {
+  mainWindow.setVisibleOnAllWorkspaces(show);
+  mainWindow.setFullScreenable(!show);
+  store.set('showOnAllWorkspaces', show);
 }
 
 function setWindowOpacity(opacity) {
@@ -254,6 +266,25 @@ function buildTray() {
           click: () => setPositionLocked(false)
         }
       ]
+    },
+    {
+      ...platform.isNode && {
+        label: 'Show on All Workspaces',
+        submenu: [
+          {
+            label: 'On',
+            type: 'radio',
+            checked: store.get('showOnAllWorkspaces'),
+            click: () => setShowOnAllWorkspaces(true)
+          },
+          {
+            label: 'Off',
+            type: 'radio',
+            checked: !store.get('showOnAllWorkspaces'),
+            click: () => setShowOnAllWorkspaces(false)
+          }
+        ]
+      }
     },
     {
       label: 'Toggle Window',
