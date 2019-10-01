@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "concurrently": "4.1.2",
-    "cross-env": "6.0.0",
+    "cross-env": "6.0.1",
     "electron": "4.2.8",
     "electron-builder": "21.2.0",
     "typescript": "3.5.3",
