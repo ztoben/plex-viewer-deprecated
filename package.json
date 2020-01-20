@@ -31,7 +31,7 @@
     "electron": "4.2.8",
     "electron-builder": "22.2.0",
     "typescript": "3.5.3",
-    "wait-on": "3.3.0"
+    "wait-on": "4.0.0"
   },
   "homepage": "./",
   "main": "public/electron.js",
