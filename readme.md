@@ -1,7 +1,7 @@
 
 # plex-viewer
 
-[![Build Status](https://travis-ci.org/ztoben/plex-viewer.svg?branch=master)](https://travis-ci.org/ztoben/plex-viewer) [![Greenkeeper badge](https://badges.greenkeeper.io/ztoben/plex-viewer.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/ztoben/plex-viewer.svg?branch=master)](https://travis-ci.org/ztoben/plex-viewer) 
 
 A simple electron app for viewing plex in it's own window.
 
