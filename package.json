@@ -6,7 +6,7 @@
   "version": "0.4.9",
   "private": true,
   "dependencies": {
-    "ajv": "6.12.0",
+    "ajv": "6.12.1",
     "electron-about-window": "1.13.2",
     "electron-debug": "3.0.1",
     "electron-is-dev": "1.1.0",
