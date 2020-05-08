@@ -16,7 +16,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1",
-    "snyk": "^1.317.0"
+    "snyk": "^1.319.0"
   },
   "scripts": {
     "react-start": "cross-env BROWSER=none react-scripts start",
