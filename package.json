@@ -26,7 +26,8 @@
     "pack": "electron-builder --dir",
     "dist": "npm run build && electron-builder -mw",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "publish": "build"
   },
   "devDependencies": {
     "concurrently": "5.1.0",
@@ -41,10 +42,12 @@
   "build": {
     "win": {
       "target": "NSIS",
-      "icon": "build/icon.ico"
+      "icon": "build/icon.ico",
+      "publish": "github"
     },
     "mac": {
-      "icon": "build/icon.ico"
+      "icon": "build/icon.ico",
+      "publish": "github"
     }
   },
   "browserslist": [
