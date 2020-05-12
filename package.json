@@ -3,7 +3,7 @@
   "description": "An app for viewing plex in a pop up window",
   "name": "plex-viewer",
   "license": "MIT",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "private": true,
   "dependencies": {
     "ajv": "6.12.2",
@@ -15,27 +15,27 @@
     "electron-window-state": "5.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "snyk": "^1.319.1"
+    "snyk": "1.319.1"
   },
   "scripts": {
-    "react-start": "cross-env BROWSER=none react-scripts start",
-    "start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000/ && electron .\"",
     "build": "react-scripts build",
-    "postinstall": "electron-builder install-app-deps",
-    "pack": "electron-builder --dir",
+    "dev": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000/ && electron .\"",
     "dist": "npm run build && electron-builder -mw",
-    "snyk-protect": "snyk protect",
+    "pack": "electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps",
     "prepare": "npm run snyk-protect",
-    "publish": "build"
+    "publish": "build",
+    "react-start": "cross-env BROWSER=none react-scripts start",
+    "snyk-protect": "snyk protect"
   },
   "devDependencies": {
-    "concurrently": "5.1.0",
+    "concurrently": "5.2.0",
     "cross-env": "7.0.2",
-    "electron": "4.2.8",
-    "electron-builder": "22.4.1",
+    "electron": "8.2.5",
+    "electron-builder": "22.6.0",
     "react-scripts": "3.4.1",
-    "typescript": "3.5.3",
-    "wait-on": "4.0.1"
+    "typescript": "3.8.3",
+    "wait-on": "5.0.0"
   },
   "homepage": "./",
   "main": "public/electron.js",

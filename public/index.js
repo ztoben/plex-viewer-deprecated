@@ -3,14 +3,6 @@ const Store = window.require('electron-store');
 const webview = document.getElementById('web-view');
 const store = new Store();
 
-function hideMenu() {
-  webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: none !important; }');
-}
-
-function showMenu() {
-  webview.insertCSS('div[class^="SidebarContainer-sidebarContainer"]{ display: flex !important; }');
-}
-
 function toggleSimplePlayerModeOn() {
   // Controls Container
   webview.insertCSS('div[class^="PlayerControls-controls"]{ flex-direction: column; }');
@@ -60,19 +52,9 @@ function toggleSimplePlayerModeOff() {
 }
 
 webview.addEventListener('dom-ready', function () {
-  if (store.get('plexWebLeftPanelHidden')) {
-    hideMenu();
-  }
   if (store.get('simplePlayerMode')) {
     toggleSimplePlayerModeOn();
   }
-});
-
-ipcRenderer.on('toggle-left-menu', () => {
-  const menuHidden = !store.get('plexWebLeftPanelHidden');
-  store.set('plexWebLeftPanelHidden', menuHidden);
-
-  menuHidden ? hideMenu() : showMenu();
 });
 
 ipcRenderer.on('simple-player-mode', () => {

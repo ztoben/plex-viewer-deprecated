@@ -98,7 +98,12 @@ function manageWindow() {
     resizable: !store.get('positionLocked'),
     movable: !store.get('positionLocked'),
     fullscreenable: !store.get('showOnAllWorkspaces'),
-    visibleOnAllWorkspaces: store.get('showOnAllWorkspaces')
+    visibleOnAllWorkspaces: store.get('showOnAllWorkspaces'),
+    webPreferences: {
+      nodeIntegration: true,
+      webviewTag: true,
+      enableRemoteModule: true
+    }
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.setMenu(null);
@@ -151,10 +156,6 @@ function registerShortcuts() {
 
   globalShortcut.register('Shift+Control+Z', () => {
     removeFrame();
-  });
-
-  globalShortcut.register('Shift+Control+H', () => {
-    mainWindow.webContents.send('toggle-left-menu');
   });
 
   globalShortcut.register('medianexttrack', function () {
@@ -295,7 +296,6 @@ function buildTray() {
       click: () =>
         openAboutWindow({
           icon_path: path.join(__dirname, 'icon.png'),
-          package_json_dir: __dirname,
           product_name: 'Plex Viewer',
           bug_report_url: 'https://github.com/ztoben/plex-viewer/issues',
           description: 'An electron wrapper for viewing Plex',

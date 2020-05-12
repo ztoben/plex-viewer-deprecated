@@ -23,7 +23,6 @@ A simple electron app for viewing plex in it's own window.
 ## Shortcuts
 * Toggle minimize - `Shift + Ctrl + X`
 * Toggle window frame (chrome) - `Shift + Ctrl + Z`
-* Toggle left plex menu (hidden by default) - `Shift + Ctrl + H`
 * Navigate back - `Shift + Ctrl + ←`
 * Navigate forward - `Shift + Ctrl + →`
 * Simple player mode - `Shift + Ctrl + M`
