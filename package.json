@@ -34,7 +34,7 @@
     "electron": "9.0.2",
     "electron-builder": "22.7.0",
     "react-scripts": "3.4.1",
-    "typescript": "3.9.3",
+    "typescript": "3.9.5",
     "wait-on": "5.0.0"
   },
   "homepage": "./",
