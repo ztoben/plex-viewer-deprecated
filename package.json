@@ -15,7 +15,7 @@
     "electron-window-state": "5.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "snyk": "1.341.1"
+    "snyk": "1.341.2"
   },
   "scripts": {
     "build": "react-scripts build",
