@@ -7,11 +7,11 @@
   "private": true,
   "dependencies": {
     "ajv": "6.12.2",
-    "electron-about-window": "1.13.2",
-    "electron-debug": "3.0.1",
+    "electron-about-window": "1.13.4",
+    "electron-debug": "3.1.0",
     "electron-is-dev": "1.2.0",
     "electron-platform": "1.2.0",
-    "electron-store": "5.1.1",
+    "electron-store": "5.2.0",
     "electron-window-state": "5.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -28,11 +28,11 @@
   "devDependencies": {
     "concurrently": "5.2.0",
     "cross-env": "7.0.2",
-    "electron": "8.2.5",
-    "electron-builder": "22.6.0",
+    "electron": "9.0.4",
+    "electron-builder": "22.7.0",
     "react-scripts": "3.4.1",
-    "typescript": "3.8.3",
-    "wait-on": "5.0.0"
+    "typescript": "3.9.5",
+    "wait-on": "5.0.1"
   },
   "homepage": "./",
   "main": "public/electron.js",
