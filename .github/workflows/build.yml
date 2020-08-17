@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@master
+    
+      - uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v2-beta
